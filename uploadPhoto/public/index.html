@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Example</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="image-upload" id="image-upload">
+
+            <form method="post" enctype="multipart/form-data" action="/process/photo">
+                <table>
+                    <tr>
+                        <td><label>파일</label></td>
+                        <td><input type="file" name="photo"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="업로드" name="submit">
+            </form>
+        </div>
+        
+        <div class="image-show" id="image-show"></div>
+    </div>
+
+    <script src="../app.js" charset="utf-8" defer></script>
+</body>
+</html>
