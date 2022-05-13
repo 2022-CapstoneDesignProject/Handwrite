@@ -58,7 +58,8 @@ app.use(cors());
 // 파일 제한 : 10개, 1G
 var storage = multer.diskStorage({
     destination: function(req, file, callback){
-        
+        var dir = './uploads';
+        if(!fs.existsSync(dir)) fs.mkdirSync(dir);
         callback(null, './uploads');
     },
     filename: function(req, file, callback){
@@ -143,10 +144,11 @@ var errorHandler = expressErrorHandler({
 });
  
 app.use(expressErrorHandler.httpError(404));
-app.use(errorHandler);
+app.use(errorHandler);*/
 
 // 라우터 객체를 app 객체에 등록
-app.use('/',router); */
+app.use('/',router); 
+
 // Express 서버 시작
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
