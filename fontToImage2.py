@@ -33,9 +33,6 @@ for x in ttf["cmap"].tables:
 ttf.close()
 
 font = ImageFont.truetype(sys.argv[1], int(sys.argv[2]))
-canvas = Image.new('RGB', (200, 200), "white")
-draw = ImageDraw.Draw(canvas)
-#w, h = draw.textsize(int(sys.argv[2]), sys.argv[1])
 
 files = os.listdir(TEXTS_DIR)
 for filename in files:
@@ -50,7 +47,9 @@ for filename in files:
     #subprocess.call(["convert", "-font", TTF_PATH, "-pointsize", FONT_SIZE, "-background", "rgba(0,0,0,0)", "label:@" + input_txt, output_png])
     
     file = open(input_txt, "r", encoding = 'UTF8')
-    draw.text(((200-20)/2, (200-20)/2), file.read(), fill="black", font = font)
+    canvas = Image.new('RGB', (200, 200), "white")
+    draw = ImageDraw.Draw(canvas)   
+    draw.text(((200-30)/2, (200-30)/2), file.read(), fill="black", font = font)
     canvas.save(output_png)
 
 
