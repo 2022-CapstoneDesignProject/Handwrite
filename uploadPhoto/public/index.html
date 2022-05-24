@@ -5,22 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Upload Example</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/public/style.css">
     
 </head>
 <body>
     <div class="container">
         <div class="image-upload" id="image-upload">
 
-            <form method="post" enctype="multipart/form-data" action="/process/photo">
-                <table>
-                    <tr>
-                        <td><label>파일</label></td>
-                        <td><input type="file" name="photo"></td>
-                    </tr>
-                </table>
-                <input type="submit" value="업로드" name="submit">
-            </form>
+            <form method="post" enctype="multipart/form-data" action="/process/photo">               
+                <div><label class="files">FILE</label></div>
+                <div>
+                    <label class="input-file-button" for="input-file">Select File</label>
+                    <input type="file" class=input-file-button" id="input-file" name="photo" style="visibility:hidden;"/>
+                </div>
+                <div><input type="submit" class="upload-button" value="Upload" name="submit"></div>                
+            </form> 
+        
         </div>
         
         <div class="image-show" id="image-show"></div>

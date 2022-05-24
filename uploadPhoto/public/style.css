@@ -53,7 +53,27 @@ label {
     margin-left: 5px;
 }
 
-.buttonContainer {
+.files{
+    margin-left: 50px;
+    font-size: 3em;
+}
+
+.input-file-button {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 0.8em;
+
+    cursor: pointer;
+}
+
+.upload-button{
     width: 15%;
     display: flex;
     justify-content: center;
