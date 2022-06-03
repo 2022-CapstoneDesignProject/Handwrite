@@ -15,7 +15,7 @@
         <div class="image-upload" id="image-upload">
 
             <form method="post" enctype="multipart/form-data" >               
-                <div><label class="files">FILE</label></div>
+                <div><label class="files">GET YOUR OWN FONT!</label></div>
                 <div class = "fileContainer">
                     <div class="fileInput">
                         <p>FILE NAME: </p>
@@ -27,17 +27,23 @@
                         
                     
                 </div>
-                <input type="submit" class="upload-button" id="upload-button" value="Upload" name="submit"/>                
-                    
             </form> 
-        <div class="image-show" id="image-show" style="background-color : #d0e3bd; width : 50%; height : 50%" ></div>
-        </div>
-        
-        
+            <input type="submit" class="upload-button" id="upload-button" value="Upload" name="submit" onclick="showImage()"/>  
+              
+                  
+            
+            <div class="image-show" id="image-show" style="background-color : #d0e3bd; width : 50%; height : 50%" >
+
+            
+        </div>   
     </div>
 
 
     <script>
+        var submit = document.getElementById('submitButton');
+        //submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
+        //submit.onclick = readImage(this);
+
         function showImage() {
             var newImage = document.getElementById('image-show').lastElementChild;
             newImage.style.visibility = "visible";
@@ -47,8 +53,7 @@
             document.getElementById('fileName').textContent = null;     //기존 파일 이름 지우기
         }
 
-        function loadFile(input) {
-            
+        function loadFile(input) {         
 
             if(input){
             var file = input.files[0];	//선택된 파일 가져오기
@@ -72,13 +77,25 @@
             //이미지를 image-show div에 추가
             var container = document.getElementById('image-show');
             container.appendChild(newImage);
+            
+
             }
         };     
+/*
+        function readImg(input){
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    document.getElementById('image-show').src = e.target.result;
 
-        var submit = document.getElementById('upload-button');
-        submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
-
-        /*
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+            else{
+                document.getElementById('image-show').src = "";
+            }
+        }
+        
         function readImage(input){
             //input tag에 파일이 있는 경우
             if(input.files && input.files[0]){
@@ -94,7 +111,7 @@
             }
         }
 
-        const inputImage = document.getElementById("input-file");
+        const inputImage = document.getElementById("image-show");
         inputImage.addEventListener("change", e=> {
             readImage(e.target);
         })*/
