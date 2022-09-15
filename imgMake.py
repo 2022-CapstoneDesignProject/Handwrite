@@ -5,6 +5,7 @@ import numpy as np
 
 src1 = cv2.imread('./testImg/background2.png') #배경파일 읽기 
 src2 = cv2.imread('./testImg/1.png') #ㄱ파일 읽기
+src3 = cv2.imread('./testImg/2.png') #ㅏ파일 읽기
 
 rows, cols, channels = src2.shape #로고파일 픽셀값 저장
 roi = src1[50:rows+50,50:cols+50] #로고파일 필셀값을 관심영역(ROI)으로 저장함.
