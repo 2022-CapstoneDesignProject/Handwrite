@@ -9,16 +9,18 @@ src3 = cv2.imread('./testImg/2.png') #ㅏ파일 읽기
 src2Gray = cv2.cvtColor(src2, cv2.COLOR_RGB2GRAY)
 #ret, src2mask = cv2.threshold(src2Gray, 160, 255, cv2.THRESH_BINARY) #배경은 흰색으로, 그림을 검정색으로 변경
 
+#cv2.imshow('img1', src2)
 
 blur = cv2.GaussianBlur(src2Gray, ksize=(5, 5), sigmaX=0)
 ret, src2mask = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY)
 src2Binary = cv2.bitwise_not(src2mask)
 
 edged1 = cv2.Canny(blur, 10, 250)
+#cv2.imshow('edged1', edged1)
 
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
 closed = cv2.morphologyEx(edged1, cv2.MORPH_CLOSE, kernel)
-cv2.imshow('closed', closed)
+#cv2.imshow('closed', closed)
 
 contours1, _ = cv2.findContours(closed.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 total = 0
@@ -62,17 +64,16 @@ y = y_min
 w = x_max-x_min
 h = y_max-y_min
 img_trim = closed[y:y+h, x:x+w]
-cv2.imwrite('No1.jpg', img_trim)
-org_img1 = cv2.imread('No1.jpg')
+#cv2.imwrite('./testImg/No1.jpg', img_trim)
+#org_img1 = cv2.imread('./testImg/No1.jpg')
 
-cv2.imshow('org_img1', org_img1)
+#cv2.imshow('img_trim', img_trim)
 
 #gray = cv2.cvtColor(org_img1, cv2.COLOR_BGR2GRAY)
-ret, No1mask = cv2.threshold(org_img1, 160, 255, cv2.THRESH_BINARY_INV) #배경은 흰색으로, 그림을 검정색으로 변경
+ret, No1mask = cv2.threshold(img_trim, 160, 255, cv2.THRESH_BINARY_INV) #배경은 흰색으로, 그림을 검정색으로 변경
 cv2.imshow('no1Mask', No1mask)
-
-cv2.imshow('img1', src2)
-cv2.imshow('edged1', edged1)
+cv2.imwrite('./testImg/No1.jpg', No1mask)
+org_img1 = cv2.imread('./testImg/No1.jpg')
 
 cv2.waitKeyEx()
 cv2.destroyAllWindows()
