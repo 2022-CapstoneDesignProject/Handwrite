@@ -14,11 +14,14 @@ blur = cv2.GaussianBlur(src2Gray, ksize=(5, 5), sigmaX=0)
 ret, src2mask = cv2.threshold(blur, 160, 255, cv2.THRESH_BINARY)
 src2Binary = cv2.bitwise_not(src2mask)
 
-edged = cv2.Canny(blur, 10, 250)
+edged1 = cv2.Canny(blur, 10, 250)
 
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
+closed = cv2.morphologyEx(edged1, cv2.MORPH_CLOSE, kernel)
+cv2.imshow('closed', closed)
 
 cv2.imshow('img1', src2)
-cv2.imshow('edged', edged)
+cv2.imshow('edged1', edged1)
 
 cv2.waitKeyEx()
 cv2.destroyAllWindows()
