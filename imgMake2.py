@@ -20,6 +20,53 @@ kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
 closed = cv2.morphologyEx(edged1, cv2.MORPH_CLOSE, kernel)
 cv2.imshow('closed', closed)
 
+contours1, _ = cv2.findContours(closed.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+total = 0
+
+#외곽선 그리는 용도. 이미지에 그리기때문에 원래 이미지에 초록색 선이 생긴다.
+#contours1_img = cv2.drawContours(src2, contours1, -1, (0, 255, 0), 3)
+#cv2.imshow('contours1_img', contours1_img)
+
+#외곽을 저장하고 있는 contours는 외곽의 점들이 모여 선을 나타내므로 각 점의 좌표를 가지고 있다
+#리스트를 넘파이 array로 바꾸어 형태를 알아본다.
+#contours[] : 물체가 몇개인지 // contours[][] : 각 좌표 // contours[][][x][y] : 세번째와 네번째부터는 각각 x축과 y축을 나타냄
+contours_xy = np.array(contours1)
+contours_xy.shape
+
+x_min, x_max = 0, 0
+value = list()
+
+for i in range(len(contours_xy)):
+    for j in range(len(contours_xy[i])):
+        value.append(contours_xy[i][j][0][0]) #4번째 괄호가 0일때 x의 값
+        x_min = min(value)-5
+        x_max = max(value)+5
+
+print(x_min)
+print(x_max)
+
+y_min, y_max = 0, 0
+value = list()
+for i in range(len(contours_xy)):
+    for j in range(len(contours_xy[i])):
+        value.append(contours_xy[i][j][0][1]) 
+        y_min = min(value)-5
+        y_max = max(value)+5
+
+print(y_min)
+print(y_max)
+
+#imgae trim
+x = x_min
+y = y_min
+w = x_max-x_min
+h = y_max-y_min
+img_trim = closed[y:y+h, x:x+w]
+cv2.imwrite('기역.jpg', img_trim)
+org_img1 = cv2.imread('기역.jpg')
+
+cv2.imshow('org_img1', org_img1)
+
 cv2.imshow('img1', src2)
 cv2.imshow('edged1', edged1)
 
