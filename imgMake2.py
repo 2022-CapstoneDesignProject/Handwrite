@@ -42,8 +42,8 @@ for i in range(len(contours_xy)):
         x_min = min(value)-5
         x_max = max(value)+5
 
-print(x_min)
-print(x_max)
+#print(x_min)
+#print(x_max)
 
 y_min, y_max = 0, 0
 value = list()
@@ -53,8 +53,8 @@ for i in range(len(contours_xy)):
         y_min = min(value)-5
         y_max = max(value)+5
 
-print(y_min)
-print(y_max)
+#print(y_min)
+#print(y_max)
 
 #imgae trim
 x = x_min
@@ -62,10 +62,14 @@ y = y_min
 w = x_max-x_min
 h = y_max-y_min
 img_trim = closed[y:y+h, x:x+w]
-cv2.imwrite('기역.jpg', img_trim)
-org_img1 = cv2.imread('기역.jpg')
+cv2.imwrite('No1.jpg', img_trim)
+org_img1 = cv2.imread('No1.jpg')
 
 cv2.imshow('org_img1', org_img1)
+
+#gray = cv2.cvtColor(org_img1, cv2.COLOR_BGR2GRAY)
+ret, No1mask = cv2.threshold(org_img1, 160, 255, cv2.THRESH_BINARY_INV) #배경은 흰색으로, 그림을 검정색으로 변경
+cv2.imshow('no1Mask', No1mask)
 
 cv2.imshow('img1', src2)
 cv2.imshow('edged1', edged1)
