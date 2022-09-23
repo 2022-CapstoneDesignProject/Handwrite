@@ -73,6 +73,7 @@ img_trim = closed[y:y+h, x:x+w]
 ret, No1mask = cv2.threshold(img_trim, 160, 255, cv2.THRESH_BINARY_INV) #배경은 흰색으로, 그림을 검정색으로 변경
 cv2.imshow('no1Mask', No1mask)
 cv2.imwrite('./testImg/No1.jpg', No1mask)
+
 org_img1 = cv2.imread('./testImg/No1.jpg')
 
 cv2.waitKeyEx()
