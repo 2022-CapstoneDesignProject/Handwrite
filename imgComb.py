@@ -29,11 +29,39 @@ roi = src1[0:rows, 0:cols]
 #src1[30:rows+30,30:cols+30] = src2 #src1에 src2값 합성
 #img1 = src1.copy()
 
-dst = cv2.addWeighted(roi, 1, mask, 0.5, 0)
+#dst = cv2.addWeighted(roi, 1, mask, 0.5, 0)
 
 #dst = cv2.bitwise_and(mask, src1)
-src1[0:rows, 0:cols] = dst
+#src1[0:rows, 0:cols] = dst
 #img1[30:rows + 30+30, 30:cols +60] = src3
+
+###########여기부터 새로운 코드
+img = Image.open('./testImg/No1.jpg')
+img = img.convert("RGBA")
+datas = img.getdata()
+
+newData = []
+cutoff = 100
+
+for item in datas:
+    if item[0] >= cutoff and item[1] >= cutoff and item[2] >= cutoff:
+        newData.append((255, 255, 255, 0))
+    else:
+        newData.append(item)
+img.putdata(newData)
+img.save("./testImg/new.png", "PNG")
+
+img1 = cv2.imread('./testImg/new.png')
+
+src1[0:rows, 0:cols] = img1
+cv2.imshow("dst", src1)
+
+mask = np.full_like(img1, 255)
+height, width = src1.shape[:2]
+center = (width//2, height//2)
+
+mix = cv2.seamlessClone(img1, src1, mask, center, cv2.MIXED_CLONE)
+cv2.imshow('mix', mix)
  
 cv2.imshow('result',src1)
 
