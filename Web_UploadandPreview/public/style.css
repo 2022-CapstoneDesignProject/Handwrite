@@ -128,6 +128,23 @@ label {
     right : 21%;
 }
 
+.make-font-button {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 0.8em;
+    margin-top: 200px;
+    cursor: pointer;
+    position : absolute;
+    right : 21%;
+}
+
 .img {
     position: absolute;
 }
