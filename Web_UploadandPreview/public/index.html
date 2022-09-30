@@ -24,15 +24,14 @@
                     <label class="input-file-button" for="input-file">Select File</label>
                     <input type="file" class="input-file-button" id="input-file" name="photo" style="visibility:hidden;" accept="image/*" onchange="loadFile(this)"/>
                     
-                        
-                    
                 </div>
             </form> 
             <input type="submit" class="upload-button" id="upload-button" value="Upload" name="submit" onclick="showImage()"/>  
               
-                  
+            <input type="button" class="make-font-button" id="make-font-button" value="Make Font" onclick="newPage()"/>      
             
             <div class="image-show" id="image-show" style="background-color : #d0e3bd; width : 50%; height : 50%" >
+            
             
         </div>   
     </div>
@@ -77,8 +76,14 @@
             }
         };  
 
+        function newPage(){
+            
+            window.location.href = 'download.html'
+        }
+
         var submit = document.getElementById('upload-button');
         //submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
+
 
     </script>
 
