@@ -83,6 +83,23 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + "/public/index.html");
 });
 
+
+//app.get('/download', function(req, res){ //돌아가는 코드
+app.use('/', function(req, res){    
+    fs.readFile(path.join(__dirname + "/public/download.html"), 'utf8', (err, data)=>{
+        if(err) throw err;
+        console.log("download.html read");
+        res.write(data);
+        res.end();
+    });
+})
+/*
+app.post('/download', upload.single('img'), (req, res)=>{
+    var response = '<a href = "download.html></a>';
+    var click = document.getElementById('nake-font-button');
+    if(click != 0) res.send(response);
+})*/
+
 /*
 app.post('/', upload.array('photo', 1), function(req, res){
     var response = '<a href="index.html></a>'
