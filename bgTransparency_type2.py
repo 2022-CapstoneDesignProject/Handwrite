@@ -4,8 +4,6 @@ import numpy as np
 from PIL import Image
 import os
 
-src1 = cv2.imread('./testImg/background2.png') #배경파일 읽기
-src2 = cv2.imread('./testimg/No1.jpg') 
 
 #이미지 배경 투명하게 만들기
 def imgTransparency(img_dir) :
@@ -36,24 +34,31 @@ def imgTransparency(img_dir) :
         img.save(img_dir+str(i)+'.png', "PNG")
         i += 1
 
-for k in range(1,23):
-    for j in range(1,10):
-        for i in range(1,23):
-            img = Image.open('./testImg/jamo/backgroundO/letter'+str(i)+'_'+str(j)+'_'+str(k)+'.png')
-            img = img.convert("RGBA")
-            datas = img.getdata()
+def bgTransparency2():
 
-            newData = []
-            cutoff = 150
+    #directory 존재하지 않은 경우 생성
+    path = './testImg/jamo/backgroundX'
+    if not os.path.exists(path):
+        os.makedirs(path)
+    
+    for k in range(1,23):
+        for j in range(1,10):
+            for i in range(1,23):
+                img = Image.open('./testImg/jamo/backgroundO/letter'+str(i)+'_'+str(j)+'_'+str(k)+'.png')
+                img = img.convert("RGBA")
+                datas = img.getdata()
 
-            for item in datas:
-                if item[0] >= cutoff and item[1] >= cutoff and item[2] >= cutoff:
-                    newData.append((255, 255, 255, 0))
-                else:
-                    newData.append(item)
-            img.putdata(newData)
-            img.save("./testImg/jamo/backgroundX/letter"+str(i)+'_'+str(j)+'_'+str(k)+".png", "PNG")
+                newData = []
+                cutoff = 150
+
+                for item in datas:
+                    if item[0] >= cutoff and item[1] >= cutoff and item[2] >= cutoff:
+                        newData.append((255, 255, 255, 0))
+                    else:
+                        newData.append(item)
+                img.putdata(newData)
+                img.save(path+'/letter'+str(i)+'_'+str(j)+'_'+str(k)+".png", "PNG")
 
 
-cv2.waitKeyEx()
-cv2.destroyAllWindows()
+    cv2.waitKeyEx()
+    cv2.destroyAllWindows()
