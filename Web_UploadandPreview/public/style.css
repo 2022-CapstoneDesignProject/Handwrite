@@ -148,3 +148,72 @@ label {
 .img {
     position: absolute;
 }
+
+.file-download-button {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 0.8em;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.fontContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.font{    
+    height: 350px;
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 3px;
+}
+
+.fileDownload {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 2px black;
+    width: 60%;
+    height: 30px;
+}
+
+#fontName {
+    margin-left: 5px;
+}
+
+.fonts{
+    margin-left: 40%;
+    font-size: 3em;
+}
+
+.font-image-show {
+    z-index: -1;
+
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 80%;
+    height: 50%;
+}
+
+.font-show {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
