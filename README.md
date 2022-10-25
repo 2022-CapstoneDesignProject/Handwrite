@@ -1,4 +1,8 @@
-# GAN_Handwrite font generator
+# Handwrite font generator
+## Project Background
+To simplify the whole font generating process and to reduce the total time to make a font,
+we develop this handwrite font generator
+so that user can easily access this web service and use freely.
 
 ## How to implement fontToImage.py 
 <pre><code> python fontToImage.py ./font/font_name.ttf fontsize </code></pre>
