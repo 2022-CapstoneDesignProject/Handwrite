@@ -50,47 +50,50 @@ class ShapeDetector:
 			# return the name of the shape		
 		return shape
 
-sd = ShapeDetector() 
-#cnts = cv2.findContours(thresh2.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE) 
-cnts = cv2.findContours(thresh2.copy(), cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE) 
-cnts = cnts[0] #if imutils.is_cv2() else cnts[1]
+def detectRec() :
+	sd = ShapeDetector() 
+	#cnts = cv2.findContours(thresh2.copy(), cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE) 
+	cnts = cv2.findContours(thresh2.copy(), cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE) 
+	cnts = cnts[0] #if imutils.is_cv2() else cnts[1]
 
-contours1_img = cv2.drawContours(thresh2, cnts, -1, (0, 255, 0), 3)
-cv2.imshow('contours1_img', contours1_img)
+	contours1_img = cv2.drawContours(thresh2, cnts, -1, (0, 255, 0), 3)
+	cv2.imshow('contours1_img', contours1_img)
 
-contours_xy = np.array(cnts)
-contours_xy.shape
+	contours_xy = np.array(cnts)
+	contours_xy.shape
 
 
-count = 0
+	count = 0
 
-for c in cnts:
+	for c in cnts:
 
-	if sd.detect(c) != 'rectangle': 
-		next
-	print(sd.detect(c))
+		if sd.detect(c) != 'rectangle': 
+			next
+		print(sd.detect(c))
 
-	c = c.astype("float")
+		c = c.astype("float")
 
-	c = c.astype("int")
+		c = c.astype("int")
 
-	x,y,w,h = cv2.boundingRect(c)
+		x,y,w,h = cv2.boundingRect(c)
 
-	print(w)
-	print(h)
+		print(w)
+		print(h)
 
-	#cv2.rectangle(thresh2,(x,y),(x+w,y+h),(3,255,4),2)
+		#cv2.rectangle(thresh2,(x,y),(x+w,y+h),(3,255,4),2)
 
-	#cv2.imshow("image", image)
+		#cv2.imshow("image", image)
 
-	#cv2.waitKey(0)
+		#cv2.waitKey(0)
 
-	if not (92 < w < 95 and 71 < h < 78): 
-		print("skip" + str(w) + " - " + str(h))
-		continue
+		if not (92 < w < 95 and 71 < h < 78): 
+			print("skip" + str(w) + " - " + str(h))
+			continue
 
-	count = count+1
+		count = count+1
 
-	cv2.imwrite("./cropImg/newcropImg"+str(count)+".png", image[y: y + h, x: x + w])
+		cv2.imwrite("./cropImg/newcrop"+str(count)+".png", image[y: y + h, x: x + w])
+
+
 cv2.waitKeyEx()
 cv2.destroyAllWindows()
