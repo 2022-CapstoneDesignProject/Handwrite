@@ -4,17 +4,22 @@ To simplify the whole font generating process and to reduce the total time to ma
 we develop this handwrite font generator
 so that user can easily access this web service and use freely.
 
-## Main Features
+## :books: Main Features & Processes
 1. Upload and Preview the written template   
 2. Crop uploaded file into each Korean alphabets as a rectangle   
 3. Remove unnecessary background   
 4. Remove margin of the cropped images as mentioned on number 2   
-5. Convert png files into a ttf file   
+5. Combine Korean alphabets as Korean letters
+6. Convert png files into a svg file
+7. Convert svg files into a font file
+8. Download a font generated   
+
+<br>
 
 ## How to implement fontToImage.py 
 <pre><code> python fontToImage.py ./font/font_name.ttf fontsize </code></pre>
 
-## How to implement webpage
+## :gem: How to implement webpage
 Download font folder, web upload & preview folder
   In the terminal, run 
 <pre><code> node app.js </code></pre>
