@@ -5,7 +5,7 @@ import os
 from PIL import Image
 
 
-image = cv2.imread("./newImg/newCrop1_rev.png")
+image = cv2.imread("./newImg/newTemplate1.png")
 image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 image_gray_blurred = cv2.GaussianBlur(image_gray, (5, 5), 0)
 
@@ -63,8 +63,8 @@ def detectRec() :
 	contours_xy.shape
 
 
-	count = 0
-
+	#count = 0
+	count = 41
 	for c in cnts:
 
 		if sd.detect(c) != 'rectangle': 
@@ -86,13 +86,13 @@ def detectRec() :
 
 		#cv2.waitKey(0)
 
-		if not (92 < w < 95 and 71 < h < 78): 
+		if not (85 < w < 95 and 85 < h < 95): 
 			print("skip" + str(w) + " - " + str(h))
 			continue
 
-		count = count+1
+		count = count-1
 
-		cv2.imwrite("./cropImg/newcrop"+str(count)+".png", image[y: y + h, x: x + w])
+		cv2.imwrite("./cropImg/letter"+str(count)+".png", image[y: y + h, x: x + w])
 
 
 cv2.waitKeyEx()
