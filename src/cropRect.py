@@ -5,6 +5,7 @@ import os
 from PIL import Image
 import sys
 
+#사용자가 업로드한 이미지 중 가장 최근 이미지 가져오기
 files_path = "../web/uploads/"
 filename_time = []
 
@@ -12,14 +13,11 @@ for f_name in os.listdir(files_path):
 	each_path = files_path + f_name
 	time = os.path.getctime(each_path)
 	filename_time.append((each_path, time))
-#sorted_filelist = sorted(filename_time, key = lambda x: x[1], reverse=True)
 
-#recent_file = sorted_filelist[0]
-#recent_filename = recent_file[0]
 recent_file = max(filename_time, key = lambda x:x[1])[0]
 #image = cv2.imread("./newImg/newTemplate1.png")
 image = cv2.imread(recent_file)
-cv2.imshow('img',image)
+#cv2.imshow('img',image)
 image_gray = cv2.cvtColor(np.array(image), cv2.COLOR_BGR2GRAY)
 image_gray_blurred = cv2.GaussianBlur(image_gray, (5, 5), 0)
 
@@ -106,8 +104,15 @@ def detectRec() :
 
 		count = count-1
 
-		cv2.imwrite("./cropImg/letter"+str(count)+".png", image[y: y + h, x: x + w])
+		cv2.imwrite("./crop/"+str(count)+".png", image[y: y + h, x: x + w])
+
 
 
 cv2.waitKeyEx()
 cv2.destroyAllWindows()
+
+path = './crop'
+if not os.path.isdir(path):
+	os.makedirs(path)
+
+detectRec()

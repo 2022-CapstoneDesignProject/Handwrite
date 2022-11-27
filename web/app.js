@@ -96,6 +96,10 @@ app.post('/download.html', upload.single('photo'), function(req, res){
     //stdout의 'data'이벤트리스너로 실행결과를 받는다.
     result.stdout.on('data', function(data){
         console.log(data.toString());
+        const comb = spawn('python', ['../src/main.py']);
+        comb.stdout.on('data', (result)=>{
+            console.log(comb.toString());
+        });
     });
 
     //에러 발생시, stderr의 'data'이벤트리스너로 실행결과를 받는다. 
