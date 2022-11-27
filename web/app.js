@@ -63,7 +63,7 @@ var storage = multer.diskStorage({
         callback(null, './uploads');
     },
     filename: function(req, file, callback){
-        callback(null, file.originalname + Date.now())
+        callback(null, file.originalname)
     }
 });
  
@@ -89,6 +89,19 @@ app.post('/', function(req, res){
 app.post('/download.html', upload.single('photo'), function(req, res){
     console.dir('#==== 업로드된 첫번째 파일 정보 ====#');
     console.dir(req.file);
+
+    const spawn = require('child_process').spawn;
+    const result = spawn('python', ['../src/cropRect.py']);
+
+    //stdout의 'data'이벤트리스너로 실행결과를 받는다.
+    result.stdout.on('data', function(data){
+        console.log(data.toString());
+    });
+
+    //에러 발생시, stderr의 'data'이벤트리스너로 실행결과를 받는다. 
+    result.stderr.on('data', function(data){
+        console.log(data.toString());
+    });
     res.sendFile(__dirname + "/public/download.html");
     //var response = '<a href = "./public/download.html></a>';
     //var click = document.getElementById('make-font-button');

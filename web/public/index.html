@@ -88,7 +88,13 @@
         var submit = document.getElementById('upload-button');
         //submit.onclick = showImage;     //Submit 버튼 클릭시 이미지 보여주기
 
+        function process(){
+            document.getElementById('image-show').innerHTML = 'OpenCV.js status: Ready.';
+ 
+        }
     </script>
+
+    <script async src="https://docs.opencv.org/4.5.4/opencv.js" onload="process();" type="text/javascript"></script>
 
     <script src="../app.js" charset="utf-8" defer></script>
 
