@@ -22,6 +22,9 @@ By using rmMargin.py, the margin of the cropped images are trimmed.
 
 ### 4. Combine Korean alphabets as Korean letters
 Combine korean letters by using jamoComb1.py ~ jamoComb9.py   
+The image below shows the combination of korean letters. This is how we make letters using jamo.   
+![image](https://user-images.githubusercontent.com/81309465/204545246-3bb97968-789d-4f25-b2da-eedfa60afd00.png)
+
 <br>
 
 ### 5. Download the gerated file
