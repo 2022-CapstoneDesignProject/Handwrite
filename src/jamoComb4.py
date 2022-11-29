@@ -18,7 +18,7 @@ def jamoComb4():
         os.makedirs(path)
 
 
-    for j in [28, 32, 33, 38]:
+    for j in [28, 32, 33, 37, 38]:
         for i in range (1,20):
             src1 = cv2.imread('../src/background.png') 
             src2 = cv2.imread('./crop/'+str(i)+'.png') 
@@ -30,12 +30,14 @@ def jamoComb4():
             gray = cv2.cvtColor(src2, cv2.COLOR_BGR2GRAY) #로고파일의 색상을 그레이로 변경
             ret, mask = cv2.threshold(gray, 160, 255, cv2.THRESH_BINARY) #배경은 흰색으로, 그림을 검정색으로 변경
            
-            src1[50:rows+50, 100:cols+100] = src2
+            src1[50:rows+50, 90:cols+90] = src2
             #cv2.imshow('jaem', src1)
             width, height = src3.shape[:2]
-            src1[110:width+110, 95:95+height] = src3
+            src1[120:width+120, 95:95+height] = src3
             #cv2.imshow('moem', src1)
 
             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+ ".png", src1)
     cv2.waitKeyEx()
     cv2.destroyAllWindows()
+
+#jamoComb4()

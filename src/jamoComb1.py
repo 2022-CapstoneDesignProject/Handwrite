@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image
 import os
 
+
 #배경 없애기 전에 먼저 자음 모음 합쳐보기
 #여기서 위치 및 크기 조정
 
@@ -14,7 +15,6 @@ def jamoComb1():
     path = './comb'
     if not os.path.exists(path):
         os.makedirs(path)
-
 
     #초성 1개 중성 1개 글자 조합
     for j in [20,21,22,23,24,25,26,27,40]:
@@ -38,7 +38,6 @@ def jamoComb1():
             #cv2.imshow('moem', src1)
 
             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4) + ".png", src1)
-
             #cv2.imwrite(path+'/letter'+str(i)+'_'+str(j-19)+'.png', src1)
 
     cv2.waitKeyEx()
