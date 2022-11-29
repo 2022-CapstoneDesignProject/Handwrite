@@ -45,13 +45,13 @@ def jamoComb3():
                     src1[120:width+120, 130:130+height] = src5
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_" +str(1).zfill(3) + ".png", src1)
                 elif k == 8: #첫번째 종성이 ㄱ, ㅂ일때 -> 가능한 경우는 ㄳ, ㅄ
-                    src5 = cv2.imread('./cropImg/letter10.png') #두번째종성 ㅅ
+                    src5 = cv2.imread('./crop/10.png') #두번째종성 ㅅ
                     width, height = src5.shape[:2]
                     src1[120:width+120, 130:130+height] = src5
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4) +"_"+str(k).zfill(3)+"_"+str(1).zfill(3)+ ".png", src1)
                 elif k == 3: #첫번째 종성이 ㄴ일때 -> 가능한 경우는 ㄵ, ㄶ
                     for l in [13,19]:#두번째 종성 ㅈ,ㅎ
-                        src5 = cv2.imread('./cropImg/letter'+str(l)+'.png') #두번째종성
+                        src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
                         src1[120:width+120, 130:130+height] = src5
                         if l == 13: 
@@ -61,10 +61,10 @@ def jamoComb3():
                 elif k == 6: #첫번째 종성이 ㄹ일때 -> ㄺㄻㄼㄽㄾㄿㅀ
                     for l in [1,7,8,10,17,18,19]:
                         
-                        src5 = cv2.imread('./cropImg/letter'+str(l)+'.png') #두번째종성
+                        src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
                         src1[120:width+120, 130:130+height] = src5
-                        cv2.imshow('jong2', src1)
+                        #cv2.imshow('jong2', src1)
                         if l==1:                  
                             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_"+str(1).zfill(3) + ".png", src1)
                             #cv2.imwrite(path+'/letter'+str(i)+'_'+str(j-19)+'_'+str(k)+'_1.png', src1)
@@ -91,3 +91,5 @@ def jamoComb3():
 
     cv2.waitKeyEx()
     cv2.destroyAllWindows()
+
+#jamoComb3()
