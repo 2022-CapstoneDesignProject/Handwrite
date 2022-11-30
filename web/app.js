@@ -15,7 +15,8 @@ var expressErrorHandler = require('express-error-handler');
  
 // Session 미들웨어 불러오기
 var expressSession = require('express-session');
- 
+
+var mime = require('mime')
 
 // 익스프레스 객체 생성
 var app = express();
@@ -75,6 +76,7 @@ var upload = multer({
     }
 });
 
+
 // 라우터 사용하여 라우팅 함수 등록
 var router = express.Router();
 
@@ -95,25 +97,84 @@ app.post('/download.html', upload.single('photo'), function(req, res){
 
     //stdout의 'data'이벤트리스너로 실행결과를 받는다.
     result.stdout.on('data', function(data){
-        console.log(data.toString());
+        console.log("crop");
+        
         const comb = spawn('python', ['../src/main.py']);
-        comb.stdout.on('data', (result)=>{
-            console.log(comb.toString());
+        comb.stdout.on('data', function(data){
+            console.log('main success');
         });
-    });
+        comb.stderr.on('data', function(data){
+            console.log('main error');
+        });
+        
+       /*
+        const comb1 = spawn('python', ['../src/jamoComb1.py']);
+        comb1.stdout.on('data', function(data){
+            console.log('go1');
+        });
+        comb1.stderr.on('data', function(data){
+            console.log('error1');
+        });
 
+        const comb2 = spawn('python', ['../src/jamoComb2.py']);
+        comb2.stdout.on('data', function(data){
+            console.log('go2');
+        });
+        comb2.stderr.on('data', function(data){
+            console.log('error2');
+        });
+
+        const comb3 = spawn('python', ['../src/jamoComb3.py']);
+        const comb4 = spawn('python', ['../src/jamoComb4.py']);
+        const comb5 = spawn('python', ['../src/jamoComb5.py']);
+        
+        
+        comb3.stdout.on('data', (result)=>{
+            console.log('go3');
+        });
+        comb3.stderr.on('data', function(data){
+            console.log('error3');
+        });
+        comb4.stdout.on('data', (result)=>{
+            console.log('go4');
+        });
+        comb4.stderr.on('data', (result)=>{
+            console.log('error4');
+        });
+        comb5.stdout.on('data', (result)=>{
+            console.log('go5');
+        });
+        comb5.stdout.on('data', (result)=>{
+            console.log('error5');
+        });
+        */
+    });
     //에러 발생시, stderr의 'data'이벤트리스너로 실행결과를 받는다. 
     result.stderr.on('data', function(data){
         console.log(data.toString());
     });
+    
     res.sendFile(__dirname + "/public/download.html");
+
+    
     //var response = '<a href = "./public/download.html></a>';
     //var click = document.getElementById('make-font-button');
     //if(click != 0) res.send(response);
     //res.send(response);
 })
 
+app.get('/concat', function(req, res, next){
+    var file = __dirname + '/concat/image.png';
 
+    var filename = path.basename(file);
+    //var mimetype = mime.lookup(file);
+
+    res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+    res.setHeader('Content-type', 'image/png');
+
+    var filestream = fs.createReadStream(file);
+    filestream.pipe(res);
+});
 //app.get('/download', function(req, res){ //돌아가는 코드
 /*
 app.use('/', function(req, res){    
