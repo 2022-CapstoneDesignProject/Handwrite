@@ -24,7 +24,7 @@ def jamoComb7():
             src1[100:rows+100, 90:cols+90] = src3
             #cv2.imshow('jaem', src3)
             width, height = src2.shape[:2]
-            src1[60:width+60, 60:60+height] = src2
+            src1[60:width+60, 80:80+height] = src2
             #cv2.imshow('moem', src1)
 
             #cv2.imwrite(path+'/letter'+stri+'_'+strj+'.png', src1)

@@ -36,7 +36,7 @@ def jamoComb2():
                 width, height = src3.shape[:2]
                 src1[25:width+25, 90:90+height] = src3
                 width, height = src4.shape[:2]
-                src1[80:width+80, 84:84+height] = src4
+                src1[80:width+80, 60:60+height] = src4
 
                 cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3) + ".png", src1)
     print("comb2")

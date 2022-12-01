@@ -30,13 +30,13 @@ def jamoComb5():
                 gray = cv2.cvtColor(src2, cv2.COLOR_BGR2GRAY) #로고파일의 색상을 그레이로 변경
                 ret, mask = cv2.threshold(gray, 160, 255, cv2.THRESH_BINARY) #배경은 흰색으로, 그림을 검정색으로 변경
 
-                src1[15:rows+15, 80:cols+80] = src2
+                src1[20:rows+20, 80:cols+80] = src2
                 #cv2.imshow('cho', src1)
                 width, height = src3.shape[:2]
-                src1[70:width+70, 70:70+height] = src3
+                src1[75:width+75, 70:70+height] = src3
                 #cv2.imshow('jung', src1)
                 width, height = src4.shape[:2]
-                src1[125:width+125, 80:80+height] = src4
+                src1[110:width+110, 80:80+height] = src4
                 #cv2.imshow('jong', src1)
 
                 cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3) + ".png", src1)

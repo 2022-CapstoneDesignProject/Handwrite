@@ -31,10 +31,10 @@ def jamoComb8():
                 src1[60:rows+60, 90:cols+90] = src3
 
                 width, height = src2.shape[:2]
-                src1[30:width+30, 50:50+height] = src2
+                src1[30:width+30, 80:80+height] = src2
 
                 width, height = src4.shape[:2]
-                src1[125:width+125, 80:80+height] = src4
+                src1[125:width+125, 100:100+height] = src4
 
                 cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3) + ".png", src1)
     print("comb8")

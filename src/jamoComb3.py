@@ -42,18 +42,18 @@ def jamoComb3():
                 if k == 1: #첫번째 종성이 ㄱ, ㅂ일때 -> 가능한 경우는 ㄳ, ㅄ
                     src5 = cv2.imread('./crop/10.png') #두번째종성 ㅅ
                     width, height = src5.shape[:2]
-                    src1[80:width+80, 90:90+height] = src5
+                    src1[80:width+80, 85:85+height] = src5
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k+1).zfill(3)+"_" +str(1).zfill(3) + ".png", src1)
                 elif k == 8: #첫번째 종성이 ㄱ, ㅂ일때 -> 가능한 경우는 ㄳ, ㅄ
                     src5 = cv2.imread('./crop/10.png') #두번째종성 ㅅ
                     width, height = src5.shape[:2]
-                    src1[80:width+80, 90:90+height] = src5
+                    src1[80:width+80, 85:85+height] = src5
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4) +"_"+str(k).zfill(3)+"_"+str(1).zfill(3)+ ".png", src1)
                 elif k == 3: #첫번째 종성이 ㄴ일때 -> 가능한 경우는 ㄵ, ㄶ
                     for l in [13,19]:#두번째 종성 ㅈ,ㅎ
                         src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
-                        src1[80:width+80, 90:90+height] = src5
+                        src1[80:width+80, 85:85+height] = src5
                         if l == 13: 
                             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_"+str(1).zfill(3) + ".png", src1)
                         elif l == 19: 
@@ -63,7 +63,7 @@ def jamoComb3():
                         
                         src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
-                        src1[80:width+80, 90:90+height] = src5
+                        src1[80:width+80, 85:85+height] = src5
                         #cv2.imshow('jong2', src1)
                         if l==1:                  
                             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_"+str(1).zfill(3) + ".png", src1)
