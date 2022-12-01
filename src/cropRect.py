@@ -99,7 +99,7 @@ def detectRec() :
 
 		#cv2.waitKey(0)
 
-		if not ((65 < w < 75 and 65 < h < 75) or (30 < w < 40 and 65 < h < 75) or (65 < w < 75 and 30 < h < 40)):
+		if not ((65 < w < 75 and 65 < h < 75) or (30 < w < 40 and 65 < h < 75) or (80 < w < 88 and 30 < h < 40) or (80 < w < 88 and 65 < h < 75)):
 			print("skip" + str(w) + " - " + str(h))
 			continue
 
