@@ -142,7 +142,7 @@ app.get('/concat', function(req, res, next){
     filestream.pipe(res);
 });
 */
-/*
+
 router.use('/', upload.array('photo',1),function(req,res){   
     try{
         if(req.files && req.files.length > 0){
@@ -193,7 +193,7 @@ router.use('/', upload.array('photo',1),function(req,res){
         console.dir(err.stack);
     }
 });
-*/
+
 
 // 모든 router 처리 끝난 후 404 오류 페이지 처리
 var errorHandler = expressErrorHandler({
