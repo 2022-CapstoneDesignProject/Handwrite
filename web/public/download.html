@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Font Download Page </title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+</head>
+<body> 
+    <div class = "container"> 
+        <div class = "font-show">
+            
+                <div><label class="fonts" style="font-family: 'Nerko One', cursive;">Font Download</label></div>
+                <div class = "fontContainer">
+                    <div class = "font">
+                        <div class="fileDownload">
+                            Making font is on a progress. 
+                            <br>Please wait for 3 minutes....
+                            <br>Button will come out.
+                        </div>
+                        <form method="get" action="../concat" enctype="multipart/form-data" >               
+                            <div class="font-image-show" id="font-image-show" style="background-color : #d0e3bd; width : 90%; height : 60%" ></div>   
+                            <input type="submit" class="file-download-button" id="file-download-button" value="Download" style="visibility: hidden";/>
+                        </form>    
+                    </div>
+                    
+                </div>
+            
+        </div>        
+    </div>
+
+    <script>
+        
+        window.onload = setTimeout(function (){
+            document.getElementById("file-download-button").style.visibility = "visible";
+        }, 180000);
+        
+    </script>
+</body>
+</html>
