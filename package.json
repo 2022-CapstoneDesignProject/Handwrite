@@ -1,10 +1,10 @@
 {
-  "name": "test",
+  "name": "handwrite",
   "version": "1.0.0",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
@@ -12,12 +12,12 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "errorhandler": "^1.5.1",
-    "express": "^4.18.1",
+    "express": "^4.18.2",
     "express-error-handler": "^1.1.0",
-    "express-session": "^1.17.2",
-    "multer": "^1.4.4",
-    "serve-static": "^1.15.0"
-  },
-  "devDependencies": {},
-  "description": ""
+    "express-session": "^1.17.3",
+    "mime": "^3.0.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "node-gyp": "^9.3.0"
+  }
 }
