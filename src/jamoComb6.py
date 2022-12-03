@@ -24,7 +24,7 @@ def jamoComb6():
         #src1 = cv2.imread('./testImg/bg180x210.png') #배경파일 읽기
         for j in [28,32,33,37,38]:
             for i in range (1,20):
-                src1 = cv2.imread('../src/background.png') #배경파일 읽기
+                src1 = cv2.imread('../src/180.png') #배경파일 읽기
                 #src1 = cv2.imread('./testImg/bg180x210.png') #배경파일 읽기
                 src2 = cv2.imread('./crop/'+str(i)+'.png') #초성
                 src3 = cv2.imread('./crop/'+str(j)+'.png') #중성
