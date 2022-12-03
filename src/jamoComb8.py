@@ -15,7 +15,7 @@ def jamoComb8():
         for j in [29,30,31,34,35,36,39]:
             for i in range (1, 20):
                 #src1 = cv2.imread('./testImg/bg180x210.png')
-                src1 = cv2.imread('../src/background.png')
+                src1 = cv2.imread('../src/180.png')
                 src2 = cv2.imread('./crop/'+str(i)+'.png') 
                 src3 = cv2.imread('./crop/'+str(j)+'.png')
                 src4 = cv2.imread('./crop/'+str(k)+'.png')
