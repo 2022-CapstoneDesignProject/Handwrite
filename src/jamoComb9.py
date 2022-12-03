@@ -21,7 +21,7 @@ def jamoComb9():
     for k in range(1,20):
         for j in [29,30,31,34,35,36,39]:
             for i in range (1,20):
-                src1 = cv2.imread('../src/background.png')
+                src1 = cv2.imread('../src/180.png')
                 #src1 = cv2.imread('./testImg/bg180x210.png') #배경파일 읽기
                 src2 = cv2.imread('./crop/'+str(i)+'.png') #초성
                 src3 = cv2.imread('./crop/'+str(j)+'.png') #중성
