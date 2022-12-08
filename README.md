@@ -1,4 +1,7 @@
 # :pencil2: Handwrite font generator
+  You can try our program here ->  http://3.39.207.44:3000
+  if the server is not responding, please contact here -> byloveyj@ewhain.net
+  
 ## :high_brightness: Project Background
 To simplify the whole font generating process and to reduce the total time to make a font,
 we develop this handwrite font generator
