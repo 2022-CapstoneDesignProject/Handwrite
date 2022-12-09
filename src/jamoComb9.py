@@ -28,17 +28,17 @@ def jamoComb9():
                 src4 = cv2.imread('./crop/'+str(k)+'.png') #첫번째종성
                     
                 rows, cols, channels = src3.shape #로고파  일 픽셀값 저장
-                roi = src1[50:rows+50,50:cols+50] #로고파일 픽셀값을 관심영역(ROI)으로 저장함.
+                #roi = src1[50:rows+50,50:cols+50] #로고파일 픽셀값을 관심영역(ROI)으로 저장함.
 
                 gray = cv2.cvtColor(src2, cv2.COLOR_BGR2GRAY) #로고파일의 색상을 그레이로 변경
 
-                src1[60:rows+60, 90:cols+90] = src3
+                src1[50:rows+50, 60:cols+60] = src3
                 #cv2.imshow('jaem', src1)
                 width, height = src2.shape[:2]
-                src1[30:width+30,80:80+height] = src2
+                src1[10:width+10,50:50+height] = src2
                 #cv2.imshow('moem', src1)
                 width, height = src4.shape[:2]
-                src1[125:width+125, 70:70+height] = src4
+                src1[110:width+110, 35:35+height] = src4
                 #cv2.imshow('jong1', src1)
                 #if(0 < i < 10): stri="0"+str(i)
                 #else: stri=str(i)
@@ -51,7 +51,7 @@ def jamoComb9():
                     else: strk=str(k+1)
                     src5 = cv2.imread('./crop/10.png') #두번째종성 ㅅ
                     width, height = src5.shape[:2]
-                    src1[125:width+125, 125:125+height] = src5
+                    src1[110:width+110, 80:80+height] = src5
                     #cv2.imshow('jong2', src1)
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k+1).zfill(3)+"_" +str(1).zfill(3) + ".png", src1)
                     #cv2.imwrite(path+'/letter'+stri+'_'+strj+'_'+strk+'_1.png', src1)
@@ -60,7 +60,7 @@ def jamoComb9():
                     else: strk=str(k+1)
                     src5 = cv2.imread('./crop/10.png') #두번째종성 ㅅ
                     width, height = src5.shape[:2]
-                    src1[125:width+125, 125:125+height] = src5
+                    src1[110:width+110, 80:80+height] = src5
                     #cv2.imshow('jong2', src1)
                     cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4) +"_"+str(k).zfill(3)+"_"+str(1).zfill(3)+ ".png", src1)
                     #cv2.imwrite(path+'/letter'+stri+'_'+strj+'_'+strk+'_1.png', src1)
@@ -68,7 +68,7 @@ def jamoComb9():
                     for l in [13,19]:#두번째 종성 ㅈ,ㅎ
                         src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
-                        src1[125:width+125, 125:125+height] = src5
+                        src1[110:width+110, 80:80+height] = src5
                         #cv2.imshow('jong2', src1)
                         if l == 13: 
                             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_"+str(1).zfill(3) + ".png", src1)
@@ -80,7 +80,7 @@ def jamoComb9():
                     for l in [1,7,8,10,17,18,19]:
                         src5 = cv2.imread('./crop/'+str(l)+'.png') #두번째종성
                         width, height = src5.shape[:2]
-                        src1[125:width+125, 125:125+height] = src5
+                        src1[110:width+110, 80:80+height] = src5
                         #cv2.imshow('jong2', src1)
                         if l==1: 
                             cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3)+"_"+str(1).zfill(3) + ".png", src1)
