@@ -88,3 +88,5 @@ Download src folder and web folder
 ## Our Prototype
 
 https://user-images.githubusercontent.com/81309465/172995792-57ab9088-97a7-4de2-950d-b3642319a28d.mp4
+
+포스터발표+시연영상 link -> https://www.youtube.com/watch?v=6TCByPSVCuU&list=PLPYKV6Fp9P0YE_5AHt1fGM5lBHXSnxwnR&index=12
