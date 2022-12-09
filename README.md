@@ -2,11 +2,20 @@
   You can try our program here ->  http://3.39.207.44:3000 <br>
   if the server is not responding, please contact here -> byloveyj@ewhain.net
   
+## :boom: Notice!!!   
+  폰트가 제대로 생성이 안된 경우는 서버의 메모리 부족이나 템플릿 입력 오류 때문입니다.     
+  템플릿을 제대로 작성하였는지, png확장자로 업로드하였는지 확인하십시오.    
+  아마존 비용 과다 문제로 위의 주소에서 코드를 돌리면 메모리가 부족해서 폰트 생성이 안될 수 있으나      
+  위의 코드를 다운받아서 유료 서버에서 실행시키면 원활히 작동되는 것을 확인할 수 있습니다.    
+  <br> 
+  
 ## :high_brightness: Project Background
 To simplify the whole font generating process and to reduce the total time to make a font,
 we develop this handwrite font generator
-so that user can easily access this web service and use freely.
-
+so that user can easily access this web service and use freely.    
+<br>    
+   
+   
 ## :books: Main Features & Processes
 ### :one: Upload and Preview the written template  
 This is the main page.   <br>
