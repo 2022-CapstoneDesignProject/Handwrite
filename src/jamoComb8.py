@@ -21,20 +21,20 @@ def jamoComb8():
                 src4 = cv2.imread('./crop/'+str(k)+'.png')
 
                 rows, cols, channels = src3.shape #로고파  일 픽셀값 저장
-                roi = src1[50:rows+50,50:cols+50] #로고파일 픽셀값을 관심영역(ROI)으로 저장함.
+                #roi = src1[50:rows+50,50:cols+50] #로고파일 픽셀값을 관심영역(ROI)으로 저장함.
                 #cv2.rectangle(roi, (0,0), (rows-5, cols-1), (0,255,0))
 
                 #gray = cv2.cvtColor(src2, cv2.COLOR_BGR2GRAY) #로고파일의 색상을 그레이로 변경
                 #ret, mask = cv2.threshold(gray, 160, 255, cv2.THRESH_BINARY) #배경은 흰색으로, 그림을 검정색으로 변경
                 #mask_inv = cv2.bitwise_not(mask) #배경 검정, 로고 흰색
 
-                src1[60:rows+60, 90:cols+90] = src3
+                src1[50:rows+50, 60:cols+60] = src3
 
                 width, height = src2.shape[:2]
-                src1[30:width+30, 80:80+height] = src2
+                src1[10:width+10, 50:50+height] = src2
 
                 width, height = src4.shape[:2]
-                src1[125:width+125, 100:100+height] = src4
+                src1[110:width+110, 70:70+height] = src4
 
                 cv2.imwrite(path+'/letter'+str(i).zfill(3)+"_"+ str(j-19).zfill(4)+"_"+str(k).zfill(3) + ".png", src1)
     print("comb8")
