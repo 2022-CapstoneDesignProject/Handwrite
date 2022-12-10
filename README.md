@@ -26,7 +26,7 @@ First, download the template by clicking the "download template" button on the m
 Write down all the korean alphabet in the template and save it as png image file.   
 Then, upload the written template image on the webpage by clicking "select file" button.   
 You can see the uploaded image by clicking the upload button.   
-
+If you click the "make font" button, it will change to download.html page.   
 
 #### Here is the link to get template image.
 https://github.com/2022-CapstoneDesignProject/Handwrite/blob/main/newteamplate3.png   
@@ -55,8 +55,10 @@ And, this image below is the one that shows the result of created letter.
 
 <br>
 
-### :five: Download the gerated file
-In the download.html page, you can download the generated file.   
+### :five: Download the generated file
+In the download.html page, you can download the generated ttf file.   
+It will take approx. 3 minutes to generate font file.   
+After 3 minutes, you can see "download" button showing up, and click the button to get the ttf file.   
 
 ![image](https://user-images.githubusercontent.com/81309465/205222792-55837b68-1dfd-483f-8284-83a7f8aad3f7.png)
 
