@@ -1,6 +1,6 @@
 # :pencil2: Handwrite font generator
-  You can try our program here ->  http://3.39.207.44:3000 <br>
-  if the server is not responding, please contact here -> byloveyj@ewhain.net
+  The service has ended. <br>
+  
   
 ## :boom: Notice!!!   
   폰트가 제대로 생성이 안된 경우는 서버의 메모리 부족이나 템플릿 입력 오류 때문입니다.     
